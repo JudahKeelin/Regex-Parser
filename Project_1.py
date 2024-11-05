@@ -22,7 +22,6 @@ class RegexParser:
         while self.peek_token() and self.peek_token().type in {'CHAR', 'LPAREN', 'PERIOD', 'LPOSET', 'LNEGSET', 'BSLASH'}:
             self.parse_basic_re(level + 1)
 
-
     def parse_basic_re(self, level=0):
         self.print_node("B_RE", level)
         self.parse_elementary_re(level + 1)
@@ -71,7 +70,6 @@ class RegexParser:
         self.print_node(char_or_meta.value + " " + char_or_meta.type, level + 1)
         if char_or_meta.type == 'BSLASH':
             self.parse_char_or_meta(level)
-
 
     def peek_token(self):
         return self.tokens.peek(None)
